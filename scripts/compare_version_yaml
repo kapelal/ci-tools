@@ -1,0 +1,24 @@
+#! /bin/sh
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "At least 2 arguments for comparison"
+    return 2
+else
+
+    if [ -z "$3" ]; then
+        arg="version"
+    else
+        arg=$3
+    fi
+
+    current_version=$(yaml r $1 $arg)
+    master_version=$(yaml r $2 $arg)
+    echo $master_version
+
+    out=$(vert ">$master_version" $current_version)
+    ret=$?
+    if [ $ret -ne 0 ]; then
+        echo "Error please increment the $arg"
+        return 1
+    fi
+fi
