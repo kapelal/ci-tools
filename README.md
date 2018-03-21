@@ -1,5 +1,7 @@
 # ci-tool
 
+![](https://circleci.com/gh/Kapelal/ci-tools/tree/master.svg?style=shield)
+
 A list of tool for CI in a container
 
 ## Tools
